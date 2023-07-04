@@ -1,0 +1,6 @@
+address:
+  user-manager: http://localhost:8060
+
+admin:
+  login: admin
+  password: educ_system_!_159_pass

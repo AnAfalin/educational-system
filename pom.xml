@@ -5,6 +5,7 @@
 
     <modules>
         <module>security-manager</module>
+        <module>student-manager</module>
     </modules>
 
     <parent>
