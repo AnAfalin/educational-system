@@ -1,5 +1,7 @@
 address:
   user-manager: http://localhost:8060
+  course-manager: http://localhost:8070
+  student-manager: http://localhost:8090
 
 admin:
   login: admin
