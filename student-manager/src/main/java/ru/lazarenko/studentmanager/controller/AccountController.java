@@ -15,13 +15,13 @@ public class AccountController {
     private final AccountService accountService;
 
     @PostMapping("/{id}/top-up")
-    public ResponseDto topUpBalance(@Valid @RequestBody BalanceOperationDto request, @PathVariable Integer id) {
+    public ResponseDto topUpBalanceByAccountId(@Valid @RequestBody BalanceOperationDto request, @PathVariable Integer id) {
         return accountService.topUpBalanceById(id, request.getSum());
     }
 
     @PostMapping("/{id}/decrease")
-    public void decreaseBalanceByAccountId(@Valid @RequestBody BalanceOperationDto request, @PathVariable Integer id) {
-        accountService.decreaseBalanceByAccountId(id, request.getSum());
+    public ResponseDto decreaseBalanceByAccountId(@Valid @RequestBody BalanceOperationDto request, @PathVariable Integer id) {
+        return accountService.decreaseBalanceByAccountId(id, request.getSum());
     }
 
 }

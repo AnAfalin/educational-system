@@ -1,6 +1,7 @@
 package ru.lazarenko.securitymanager.controller;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
 import ru.lazarenko.securitymanager.dto.UserDetailsDto;
@@ -20,6 +21,7 @@ public class UserController {
     private final UserService userService;
 
     @PostMapping("/reg")
+    @ResponseStatus(HttpStatus.CREATED)
     public UserRegisterResponse createUser(@Valid @RequestBody UserRegisterRequest request) {
         return userService.createUser(request);
     }
@@ -31,8 +33,13 @@ public class UserController {
         return UserDetailsDto.getUserDetailsDto(loadedUser);
     }
 
-    @GetMapping("/users")
+    @GetMapping
     public List<UserRegisterResponse> getAllUsers() {
         return userService.getAllUsers();
+    }
+
+    @GetMapping("/check-exist/{username}")
+    public Boolean checkExistUsername(@PathVariable String username) {
+        return userService.checkExistUsername(username);
     }
 }

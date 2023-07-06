@@ -1,6 +1,7 @@
 package ru.lazarenko.coursemanager.controller;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import ru.lazarenko.coursemanager.dto.CourseDto;
 import ru.lazarenko.coursemanager.dto.ResponseDto;
@@ -26,11 +27,12 @@ public class CourseController {
     }
 
     @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
     public ResponseDto saveCourse(@RequestBody @Valid CourseDto courseDto) {
         return courseService.saveNewCourse(courseDto);
     }
 
-    @PostMapping("/{id}/decrease-free-place")
+    @PutMapping("/{id}/decrease-free-place")
     public ResponseDto decreaseFreePlace(@PathVariable(name = "id") Integer id) {
         return courseService.decreaseFreePlace(id);
     }

@@ -10,6 +10,7 @@ import ru.lazarenko.studentmanager.entity.Account;
 import ru.lazarenko.studentmanager.entity.Student;
 import ru.lazarenko.studentmanager.exception.NoCorrectCardNumber;
 import ru.lazarenko.studentmanager.exception.NoFoundElementException;
+import ru.lazarenko.studentmanager.exception.NoUniqueObjectException;
 import ru.lazarenko.studentmanager.repository.StudentRepository;
 import ru.lazarenko.studentmanager.service.mapper.RegisterMapper;
 import ru.lazarenko.studentmanager.service.mapper.StudentMapper;
@@ -26,6 +27,9 @@ public class StudentService {
 
     @Transactional
     public ResponseDto createNewStudent(StudentRegisterRequest request) {
+        if(userClient.checkUniqueUsername(request.getUsername())) {
+            throw new NoUniqueObjectException("Username '%s' already exist".formatted(request.getUsername()));
+        }
 
         UserRegisterResponse userRegisterResponse = userClient.createNewUser(registerMapper.toUserRegister(request));
 
@@ -38,7 +42,7 @@ public class StudentService {
         Student savedStudent = studentRepository.save(student);
 
         return ResponseDto.builder()
-                .status(HttpStatus.OK.name())
+                .status(HttpStatus.CREATED.name())
                 .message("Student successfully created with id='%s'".formatted(savedStudent.getId()))
                 .build();
     }

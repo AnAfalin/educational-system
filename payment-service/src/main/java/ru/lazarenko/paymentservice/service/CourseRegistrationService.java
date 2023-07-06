@@ -23,40 +23,34 @@ public class CourseRegistrationService {
     private final CourseRecordRepository courseRecordRepository;
 
     public ResponseDto signUpNewUser(Integer courseId, Integer studentId) {
-        try {
-            CourseDto course = courseClient.getCourseById(courseId);
-            StudentDto student = studentClient.getStudentById(studentId);
+        CourseDto course = courseClient.getCourseById(courseId);
+        StudentDto student = studentClient.getStudentById(studentId);
 
-            checkFreePlacesOnCourse(course);
-            checkAmountAccount(student.getAccount(), course.getPrice());
+        checkFreePlacesOnCourse(course);
+        checkAmountAccount(student.getAccount(), course.getPrice());
 
-            CourseRecord record = CourseRecord.builder()
-                    .courseId(courseId)
-                    .studentId(studentId)
-                    .build();
+        CourseRecord record = CourseRecord.builder()
+                .courseId(courseId)
+                .studentId(studentId)
+                .build();
 
-            studentClient.decreaseBalanceAccountById(student.getAccount().getId(), course.getPrice());
+        studentClient.decreaseBalanceAccountById(student.getAccount().getId(), course.getPrice());
 
-            course.setCountFreePlace(course.getCountFreePlace() - 1);
+        course.setCountFreePlace(course.getCountFreePlace() - 1);
 
-            courseClient.decreaseFreePlaceCourseById(course.getId());
+        courseClient.decreaseFreePlaceCourseById(course.getId());
 
-            courseRecordRepository.save(record);
+        courseRecordRepository.save(record);
 
-            return ResponseDto.builder()
-                    .status(HttpStatus.OK.name())
-                    .message("Student with id='%s' successful sign up for course '%s' with id='%s'"
-                            .formatted(studentId, course.getName(), courseId))
-                    .build();
-        }
-        catch (Exception e) {
-            e.printStackTrace();
-        }
-        return null;
+        return ResponseDto.builder()
+                .status(HttpStatus.OK.name())
+                .message("Student with id='%s' successful sign up for course '%s' with id='%s'"
+                        .formatted(studentId, course.getName(), courseId))
+                .build();
     }
 
     private void checkAmountAccount(AccountDto account, BigDecimal price) {
-        if(account.getBalance().doubleValue() < price.doubleValue()) {
+        if (account.getBalance().doubleValue() < price.doubleValue()) {
             throw new CourseRegistrationException(
                     "Insufficient funds in the account to pay for the course. Balance is '%s', price of course is '%s'. Top up your balance."
                             .formatted(account.getBalance(), price));
@@ -64,10 +58,10 @@ public class CourseRegistrationService {
     }
 
     private void checkFreePlacesOnCourse(CourseDto course) {
-        if(course.getCountFreePlace() == 0) {
+        if (course.getCountFreePlace() == 0) {
             throw new CourseRegistrationException(
                     "Registration for course (id='%s', name='%s') is not possible. There are no free places."
-                    .formatted(course.getId(), course.getName()));
+                            .formatted(course.getId(), course.getName()));
         }
     }
 }

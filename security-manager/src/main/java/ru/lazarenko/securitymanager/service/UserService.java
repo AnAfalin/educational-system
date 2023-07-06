@@ -44,4 +44,9 @@ public class UserService {
         List<User> users = userRepository.findAll();
         return userMapper.toListUserDto(users);
     }
+
+    @Transactional(readOnly = true)
+    public Boolean checkExistUsername(String username) {
+        return userRepository.checkExistUsername(username) > 0;
+    }
 }

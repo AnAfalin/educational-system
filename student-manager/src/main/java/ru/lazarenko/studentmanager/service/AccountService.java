@@ -32,12 +32,17 @@ public class AccountService {
     }
 
     @Transactional
-    public void decreaseBalanceByAccountId(Integer id, BigDecimal sum) {
+    public ResponseDto decreaseBalanceByAccountId(Integer id, BigDecimal sum) {
         Account account = accountRepository.findById(id)
                 .orElseThrow(() -> new NoFoundElementException("Account with id='%s' not found"));
 
         account.setBalance(account.getBalance().subtract(sum));
 
-        accountRepository.save(account);
+        Account savedAccount = accountRepository.save(account);
+        return ResponseDto.builder()
+                .status(HttpStatus.OK.name())
+                .message("The account balance with id ='%s' has been successfully increased by %s. Current balance: %s"
+                        .formatted(account.getId(), sum, savedAccount.getBalance()))
+                .build();
     }
 }

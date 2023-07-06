@@ -39,17 +39,17 @@ public class ErrorHandler extends ResponseEntityExceptionHandler {
     }
 
     @ExceptionHandler(value = {CourseRegistrationException.class})
-    public ResponseEntity<Object> RegistrationCourseException(final RuntimeException ex) {
+    public ResponseEntity<Object> CourseRegistrationException(final CourseRegistrationException ex) {
         Map<String, Object> response = new LinkedHashMap<>();
 
         response.put("timestamp", LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
-        response.put("status", HttpStatus.CONFLICT.name());
+        response.put("status", HttpStatus.FORBIDDEN.name());
         response.put("message", ex.getMessage());
 
         log.error(ex.getMessage());
 
         return ResponseEntity
-                .status(HttpStatus.BAD_REQUEST)
+                .status(HttpStatus.FORBIDDEN)
                 .body(response);
     }
 

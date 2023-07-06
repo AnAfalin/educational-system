@@ -1,6 +1,7 @@
 package ru.lazarenko.studentmanager.controller;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import ru.lazarenko.studentmanager.dto.CardDto;
 import ru.lazarenko.studentmanager.dto.ResponseDto;

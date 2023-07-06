@@ -1,6 +1,7 @@
 package ru.lazarenko.coursemanager.controller;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import ru.lazarenko.coursemanager.service.CategoryService;
 import ru.lazarenko.coursemanager.dto.CategoryDto;
@@ -26,6 +27,7 @@ public class CategoryController {
     }
 
     @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
     public ResponseDto saveCategory(@RequestBody @Valid CategoryDto categoryDto) {
         return categoryService.saveNewCategory(categoryDto);
     }

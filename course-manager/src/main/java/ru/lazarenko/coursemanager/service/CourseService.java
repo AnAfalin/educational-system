@@ -58,8 +58,9 @@ public class CourseService {
         Course savedCourse = courseRepository.save(foundCourse);
 
         return ResponseDto.builder()
-                .status(HttpStatus.CREATED.name())
-                .message("Course with id='%s' was successful updated".formatted(savedCourse.getId()))
+                .status(HttpStatus.OK.name())
+                .message("Free place on course with id='%s' successfully decrease. Actual free places now is=%s"
+                        .formatted(savedCourse.getId(), savedCourse.getCountFreePlace()))
                 .build();
     }
 
@@ -69,12 +70,4 @@ public class CourseService {
         }
     }
 
-    private void updateFieldsCourse(Course updatableCourse, Course course) {
-        updatableCourse.setName(course.getName());
-        updatableCourse.setCategory(course.getCategory());
-        updatableCourse.setCountPlace(course.getCountPlace());
-        updatableCourse.setStartDate(course.getStartDate());
-        updatableCourse.setEndDate(course.getEndDate());
-        updatableCourse.setPrice(course.getPrice());
-    }
 }

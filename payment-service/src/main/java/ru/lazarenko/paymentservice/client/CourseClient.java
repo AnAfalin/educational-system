@@ -30,6 +30,6 @@ public class CourseClient {
     public void decreaseFreePlaceCourseById(Integer courseId) {
         String url = courseManagerAddress.concat(DECREASE_FREE_PLACE_COURSE_BY_ID);
         url = url.replace("{id}", courseId.toString());
-        restTemplate.postForLocation(url, null);
+        restTemplate.put(url, null);
     }
 }
