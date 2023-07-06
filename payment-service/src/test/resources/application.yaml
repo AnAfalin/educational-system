@@ -1,0 +1,21 @@
+spring:
+  h2:
+    console:
+      enabled: true
+
+  datasource:
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: 12345
+
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+
+admin:
+  login: admin
+  password: educ_system_!_159_pass
+
+address:
+  user-manager: http://localhost:8060
+  course-manager: http://localhost:8070
+  student-manager: http://localhost:8090
