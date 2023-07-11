@@ -4,9 +4,9 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
-import ru.lazarenko.securitymanager.dto.UserDetailsDto;
-import ru.lazarenko.securitymanager.dto.UserRegisterRequest;
-import ru.lazarenko.securitymanager.dto.UserRegisterResponse;
+import ru.lazarenko.model.dto.register.UserRegisterRequest;
+import ru.lazarenko.model.dto.register.UserRegisterResponse;
+import ru.lazarenko.model.dto.security.UserDetailsDto;
 import ru.lazarenko.securitymanager.security.CustomUserDetailsService;
 import ru.lazarenko.securitymanager.service.UserService;
 

@@ -9,18 +9,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import ru.lazarenko.securitymanager.dto.RoleDto;
-import ru.lazarenko.securitymanager.dto.UserRegisterRequest;
-import ru.lazarenko.securitymanager.dto.UserRegisterResponse;
+import ru.lazarenko.model.dto.register.UserRegisterRequest;
+import ru.lazarenko.model.dto.register.UserRegisterResponse;
+import ru.lazarenko.model.dto.security.RoleDto;
+import ru.lazarenko.model.model.UserRole;
 import ru.lazarenko.securitymanager.entity.Role;
 import ru.lazarenko.securitymanager.entity.User;
-import ru.lazarenko.securitymanager.model.UserRole;
 import ru.lazarenko.securitymanager.repository.UserRepository;
 import ru.lazarenko.securitymanager.service.mapper.UserMapper;
 
 import java.time.LocalDate;
 import java.util.List;
-import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.ArgumentMatchers.any;

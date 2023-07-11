@@ -4,7 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import ru.lazarenko.studentmanager.dto.ResponseDto;
+import ru.lazarenko.model.dto.ResponseDto;
 import ru.lazarenko.studentmanager.entity.Account;
 import ru.lazarenko.studentmanager.exception.NoFoundElementException;
 import ru.lazarenko.studentmanager.repository.AccountRepository;

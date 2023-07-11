@@ -7,9 +7,9 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import ru.lazarenko.model.model.UserRole;
 import ru.lazarenko.securitymanager.entity.Role;
 import ru.lazarenko.securitymanager.entity.User;
-import ru.lazarenko.securitymanager.model.UserRole;
 import ru.lazarenko.securitymanager.repository.UserRepository;
 
 import java.time.LocalDate;

@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import ru.lazarenko.paymentservice.dto.ResponseDto;
+import ru.lazarenko.model.dto.ResponseDto;
 import ru.lazarenko.paymentservice.dto.SignUpRequest;
 import ru.lazarenko.paymentservice.service.CourseRegistrationService;
 

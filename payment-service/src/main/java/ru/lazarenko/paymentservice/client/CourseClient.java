@@ -2,15 +2,9 @@ package ru.lazarenko.paymentservice.client;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.core.ParameterizedTypeReference;
-import org.springframework.http.HttpMethod;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.client.RestTemplate;
-import ru.lazarenko.paymentservice.dto.CourseDto;
-
-import java.util.List;
+import ru.lazarenko.model.dto.course.CourseDto;
 
 @Component
 @RequiredArgsConstructor

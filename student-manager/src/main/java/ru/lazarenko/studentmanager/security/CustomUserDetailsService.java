@@ -4,11 +4,11 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Service;
+import ru.lazarenko.model.dto.security.UserDetailsDto;
 import ru.lazarenko.studentmanager.client.UserClient;
-import ru.lazarenko.studentmanager.dto.UserDetailsDto;
-import ru.lazarenko.studentmanager.model.Role;
-import ru.lazarenko.studentmanager.model.User;
-import ru.lazarenko.studentmanager.model.UserRole;
+import ru.lazarenko.model.model.Role;
+import ru.lazarenko.model.model.User;
+import ru.lazarenko.model.model.UserRole;
 
 import java.util.stream.Collectors;
 

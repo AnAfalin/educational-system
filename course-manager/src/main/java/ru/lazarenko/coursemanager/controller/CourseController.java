@@ -3,9 +3,9 @@ package ru.lazarenko.coursemanager.controller;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
-import ru.lazarenko.coursemanager.dto.CourseDto;
-import ru.lazarenko.coursemanager.dto.ResponseDto;
 import ru.lazarenko.coursemanager.service.CourseService;
+import ru.lazarenko.model.dto.course.CourseDto;
+import ru.lazarenko.model.dto.ResponseDto;
 
 import javax.validation.Valid;
 import java.util.List;

@@ -4,7 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
-import ru.lazarenko.paymentservice.dto.UserDetailsDto;
+import ru.lazarenko.model.dto.security.UserDetailsDto;
 
 @Component
 @RequiredArgsConstructor

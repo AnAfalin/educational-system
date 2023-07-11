@@ -8,8 +8,8 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import ru.lazarenko.coursemanager.client.UserClient;
-import ru.lazarenko.coursemanager.dto.RoleDto;
-import ru.lazarenko.coursemanager.dto.UserDetailsDto;
+import ru.lazarenko.model.dto.security.RoleDto;
+import ru.lazarenko.model.dto.security.UserDetailsDto;
 
 import java.util.List;
 

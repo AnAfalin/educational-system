@@ -2,8 +2,8 @@ package ru.lazarenko.studentmanager.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
-import ru.lazarenko.studentmanager.dto.BalanceOperationDto;
-import ru.lazarenko.studentmanager.dto.ResponseDto;
+import ru.lazarenko.model.dto.account.BalanceOperationDto;
+import ru.lazarenko.model.dto.ResponseDto;
 import ru.lazarenko.studentmanager.service.AccountService;
 
 import javax.validation.Valid;

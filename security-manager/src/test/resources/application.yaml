@@ -19,3 +19,8 @@ address:
   user-manager: http://localhost:8060
   course-manager: http://localhost:8070
   student-manager: http://localhost:8090
+
+jwt:
+  secret: "d2FyZWhvdXNlX3NlY29uZF9wcm9qZWN0X29mX215X0pBVkFfc3R1ZHlfMjAyMl8yMDIz"
+  access-token-expiration-ms: 600 000
+  refresh-token-expiration-ms: 3 600 000

@@ -9,15 +9,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.HttpStatus;
-import ru.lazarenko.coursemanager.dto.CourseDto;
 import ru.lazarenko.coursemanager.entity.Category;
-import ru.lazarenko.coursemanager.dto.CategoryDto;
-import ru.lazarenko.coursemanager.dto.ResponseDto;
 import ru.lazarenko.coursemanager.exception.NoFoundElementException;
 import ru.lazarenko.coursemanager.exception.NoUniqueObjectException;
 import ru.lazarenko.coursemanager.entity.Course;
 import ru.lazarenko.coursemanager.repository.CourseRepository;
 import ru.lazarenko.coursemanager.service.mapper.CourseMapper;
+import ru.lazarenko.model.dto.course.CategoryDto;
+import ru.lazarenko.model.dto.course.CourseDto;
+import ru.lazarenko.model.dto.ResponseDto;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;

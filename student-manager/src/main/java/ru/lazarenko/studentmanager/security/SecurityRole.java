@@ -2,7 +2,7 @@ package ru.lazarenko.studentmanager.security;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
-import ru.lazarenko.studentmanager.model.Role;
+import ru.lazarenko.model.model.Role;
 
 @RequiredArgsConstructor
 public class SecurityRole implements GrantedAuthority {

@@ -4,11 +4,11 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Service;
+import ru.lazarenko.model.dto.security.UserDetailsDto;
+import ru.lazarenko.model.model.Role;
+import ru.lazarenko.model.model.User;
+import ru.lazarenko.model.model.UserRole;
 import ru.lazarenko.paymentservice.client.UserClient;
-import ru.lazarenko.paymentservice.dto.UserDetailsDto;
-import ru.lazarenko.paymentservice.model.Role;
-import ru.lazarenko.paymentservice.model.User;
-import ru.lazarenko.paymentservice.model.UserRole;
 
 import java.util.stream.Collectors;
 

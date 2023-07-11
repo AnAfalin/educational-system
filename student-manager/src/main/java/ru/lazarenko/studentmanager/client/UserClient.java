@@ -4,9 +4,9 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
-import ru.lazarenko.studentmanager.dto.UserDetailsDto;
-import ru.lazarenko.studentmanager.dto.UserRegisterRequest;
-import ru.lazarenko.studentmanager.dto.UserRegisterResponse;
+import ru.lazarenko.model.dto.register.UserRegisterRequest;
+import ru.lazarenko.model.dto.register.UserRegisterResponse;
+import ru.lazarenko.model.dto.security.UserDetailsDto;
 
 @Component
 @RequiredArgsConstructor

@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.security.test.context.support.WithMockUser;
-import ru.lazarenko.studentmanager.dto.ResponseDto;
+import ru.lazarenko.model.dto.ResponseDto;
 import ru.lazarenko.studentmanager.entity.Account;
 import ru.lazarenko.studentmanager.entity.Student;
 import ru.lazarenko.studentmanager.exception.NoFoundElementException;

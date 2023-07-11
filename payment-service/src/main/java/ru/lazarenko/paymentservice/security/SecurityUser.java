@@ -3,8 +3,8 @@ package ru.lazarenko.paymentservice.security;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-import ru.lazarenko.paymentservice.model.Role;
-import ru.lazarenko.paymentservice.model.User;
+import ru.lazarenko.model.model.Role;
+import ru.lazarenko.model.model.User;
 
 import java.util.Collection;
 import java.util.List;

@@ -4,13 +4,13 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import ru.lazarenko.coursemanager.dto.CategoryDto;
-import ru.lazarenko.coursemanager.dto.ResponseDto;
 import ru.lazarenko.coursemanager.exception.NoFoundElementException;
 import ru.lazarenko.coursemanager.exception.NoUniqueObjectException;
 import ru.lazarenko.coursemanager.entity.Category;
 import ru.lazarenko.coursemanager.repository.CategoryRepository;
 import ru.lazarenko.coursemanager.service.mapper.CategoryMapper;
+import ru.lazarenko.model.dto.course.CategoryDto;
+import ru.lazarenko.model.dto.ResponseDto;
 
 import java.util.List;
 

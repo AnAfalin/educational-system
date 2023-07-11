@@ -10,7 +10,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.web.servlet.MockMvc;
-import ru.lazarenko.paymentservice.dto.ResponseDto;
+import ru.lazarenko.model.dto.ResponseDto;
 import ru.lazarenko.paymentservice.dto.SignUpRequest;
 import ru.lazarenko.paymentservice.exception.CourseRegistrationException;
 import ru.lazarenko.paymentservice.service.CourseRegistrationService;

@@ -4,8 +4,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import ru.lazarenko.coursemanager.service.CategoryService;
-import ru.lazarenko.coursemanager.dto.CategoryDto;
-import ru.lazarenko.coursemanager.dto.ResponseDto;
+import ru.lazarenko.model.dto.course.CategoryDto;
+import ru.lazarenko.model.dto.ResponseDto;
 
 import javax.validation.Valid;
 import java.util.List;

@@ -4,11 +4,11 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import ru.lazarenko.securitymanager.dto.UserRegisterResponse;
-import ru.lazarenko.securitymanager.dto.UserRegisterRequest;
+import ru.lazarenko.model.dto.register.UserRegisterRequest;
+import ru.lazarenko.model.dto.register.UserRegisterResponse;
+import ru.lazarenko.model.model.UserRole;
 import ru.lazarenko.securitymanager.entity.Role;
 import ru.lazarenko.securitymanager.entity.User;
-import ru.lazarenko.securitymanager.model.UserRole;
 import ru.lazarenko.securitymanager.repository.UserRepository;
 import ru.lazarenko.securitymanager.service.mapper.UserMapper;
 

@@ -4,8 +4,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
-import ru.lazarenko.paymentservice.dto.BalanceOperationDto;
-import ru.lazarenko.paymentservice.dto.StudentDto;
+import ru.lazarenko.model.dto.account.BalanceOperationDto;
+import ru.lazarenko.model.dto.student.StudentDto;
 
 import java.math.BigDecimal;
 

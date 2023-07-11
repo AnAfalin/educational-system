@@ -3,7 +3,7 @@ package ru.lazarenko.securitymanager.entity;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import ru.lazarenko.securitymanager.model.UserRole;
+import ru.lazarenko.model.model.UserRole;
 
 import javax.persistence.*;
 

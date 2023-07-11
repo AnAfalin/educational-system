@@ -5,10 +5,10 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Service;
 import ru.lazarenko.coursemanager.client.UserClient;
-import ru.lazarenko.coursemanager.dto.UserDetailsDto;
-import ru.lazarenko.coursemanager.model.Role;
-import ru.lazarenko.coursemanager.model.User;
-import ru.lazarenko.coursemanager.model.UserRole;
+import ru.lazarenko.model.model.Role;
+import ru.lazarenko.model.model.User;
+import ru.lazarenko.model.model.UserRole;
+import ru.lazarenko.model.dto.security.UserDetailsDto;
 
 import java.util.stream.Collectors;
 

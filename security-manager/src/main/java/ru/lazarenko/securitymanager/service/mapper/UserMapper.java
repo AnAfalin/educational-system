@@ -1,7 +1,7 @@
 package ru.lazarenko.securitymanager.service.mapper;
 
 import org.mapstruct.Mapper;
-import ru.lazarenko.securitymanager.dto.UserRegisterResponse;
+import ru.lazarenko.model.dto.register.UserRegisterResponse;
 import ru.lazarenko.securitymanager.entity.User;
 
 import java.util.List;

@@ -2,7 +2,7 @@ package ru.lazarenko.paymentservice.security;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
-import ru.lazarenko.paymentservice.model.Role;
+import ru.lazarenko.model.model.Role;
 
 @RequiredArgsConstructor
 public class SecurityRole implements GrantedAuthority {

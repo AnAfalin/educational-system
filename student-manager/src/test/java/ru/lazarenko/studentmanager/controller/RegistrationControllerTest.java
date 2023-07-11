@@ -11,7 +11,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.web.servlet.MockMvc;
-import ru.lazarenko.studentmanager.dto.ResponseDto;
+import ru.lazarenko.model.dto.ResponseDto;
 import ru.lazarenko.studentmanager.dto.StudentRegisterRequest;
 import ru.lazarenko.studentmanager.exception.NoUniqueObjectException;
 import ru.lazarenko.studentmanager.service.StudentService;

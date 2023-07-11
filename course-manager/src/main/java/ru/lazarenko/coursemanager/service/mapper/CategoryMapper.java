@@ -1,8 +1,8 @@
 package ru.lazarenko.coursemanager.service.mapper;
 
 import org.mapstruct.Mapper;
-import ru.lazarenko.coursemanager.dto.CategoryDto;
 import ru.lazarenko.coursemanager.entity.Category;
+import ru.lazarenko.model.dto.course.CategoryDto;
 
 import java.util.List;
 

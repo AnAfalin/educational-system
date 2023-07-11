@@ -5,10 +5,12 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.http.HttpStatus;
+import ru.lazarenko.model.dto.account.AccountDto;
+import ru.lazarenko.model.dto.course.CategoryDto;
+import ru.lazarenko.model.dto.course.CourseDto;
+import ru.lazarenko.model.dto.student.StudentDto;
 import ru.lazarenko.paymentservice.client.CourseClient;
 import ru.lazarenko.paymentservice.client.StudentClient;
-import ru.lazarenko.paymentservice.dto.*;
 import ru.lazarenko.paymentservice.exception.CourseRegistrationException;
 import ru.lazarenko.paymentservice.repository.CourseRecordRepository;
 

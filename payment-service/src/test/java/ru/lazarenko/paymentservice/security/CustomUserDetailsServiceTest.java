@@ -7,10 +7,9 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import ru.lazarenko.paymentservice.security.CustomUserDetailsService;
+import ru.lazarenko.model.dto.security.RoleDto;
+import ru.lazarenko.model.dto.security.UserDetailsDto;
 import ru.lazarenko.paymentservice.client.UserClient;
-import ru.lazarenko.paymentservice.dto.RoleDto;
-import ru.lazarenko.paymentservice.dto.UserDetailsDto;
 
 import java.util.List;
 
