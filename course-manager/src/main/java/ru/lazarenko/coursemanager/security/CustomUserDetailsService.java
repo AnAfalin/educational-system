@@ -8,7 +8,7 @@ import ru.lazarenko.coursemanager.client.UserClient;
 import ru.lazarenko.model.model.Role;
 import ru.lazarenko.model.model.User;
 import ru.lazarenko.model.model.UserRole;
-import ru.lazarenko.model.dto.security.UserDetailsDto;
+import ru.lazarenko.securitymanager.dto.UserDetailsDto;
 
 import java.util.stream.Collectors;
 
@@ -20,8 +20,8 @@ public class CustomUserDetailsService implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String username) {
         UserDetailsDto userDetailsDto = userClient.getByUsername(username);
-
         return new SecurityUser(new User(userDetailsDto.getUsername(),
+
                 userDetailsDto.getPassword(),
                 userDetailsDto.getRoles()
                         .stream()

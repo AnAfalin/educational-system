@@ -20,6 +20,12 @@
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
 
+        <dependency>
+            <groupId>ru.lazarenko</groupId>
+            <artifactId>security-manager</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+
         <!-- Starter for using Spring Data JPA with Hibernate -->
         <dependency>
             <groupId>org.springframework.boot</groupId>

@@ -26,8 +26,8 @@ public class UserController {
         return userService.createUser(request);
     }
 
-    @GetMapping("/details/{username}")
-    public UserDetailsDto getUserDetails(@PathVariable String username) {
+    @PostMapping("/details")
+    public UserDetailsDto getUserDetails(@RequestBody String username) {
         UserDetails loadedUser = customUserDetailsService.loadUserByUsername(username);
 
         return UserDetailsDto.getUserDetailsDto(loadedUser);

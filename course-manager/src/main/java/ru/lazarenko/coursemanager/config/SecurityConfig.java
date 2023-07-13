@@ -1,5 +1,6 @@
 package ru.lazarenko.coursemanager.config;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -8,16 +9,25 @@ import org.springframework.security.authentication.dao.DaoAuthenticationProvider
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import ru.lazarenko.coursemanager.client.AuthClient;
+import ru.lazarenko.coursemanager.security.AuthFilter;
+import ru.lazarenko.coursemanager.security.JwtTokenVerifier;
+
+import java.util.Set;
 
 @Configuration
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 @RequiredArgsConstructor
 public class SecurityConfig {
     private final UserDetailsService userDetailsService;
+    private final AuthClient authClient;
+    private final ObjectMapper objectMapper;
+    public static final Set<String> whiteListUrls = Set.of("/login", "/api/refresh-token");
 
     @Bean
     public PasswordEncoder passwordEncoder() {
@@ -26,12 +36,23 @@ public class SecurityConfig {
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+        AuthenticationManager authManager = authenticationManager(http.getSharedObject(AuthenticationConfiguration.class));
+
         http
-                .csrf().disable()
+                .csrf()
+                .disable()
+                .sessionManagement()
+                .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+                .and()
                 .authorizeRequests()
+                .antMatchers("/login", "/api/refresh-token").permitAll()
                 .anyRequest().authenticated()
                 .and()
-                .httpBasic();
+                .addFilter(new AuthFilter(authManager, authClient, objectMapper))
+                .addFilterAfter(new JwtTokenVerifier(authClient, objectMapper), AuthFilter.class)
+                .addFilterBefore(new JwtTokenVerifier(authClient, objectMapper), AuthFilter.class)
+                .formLogin()
+                .disable();
 
         return http.build();
     }

@@ -7,6 +7,7 @@ import lombok.Setter;
 import org.springframework.security.core.GrantedAuthority;
 
 import java.util.Collection;
+import java.util.List;
 
 @Getter
 @Setter
@@ -14,5 +15,5 @@ import java.util.Collection;
 @AllArgsConstructor
 public class UserSecurityInfo {
     private String username;
-    private Collection<? extends GrantedAuthority> authorities;
+    private List<RoleDto> authorities;
 }

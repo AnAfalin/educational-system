@@ -11,7 +11,7 @@ import ru.lazarenko.model.dto.security.UserDetailsDto;
 @Component
 @RequiredArgsConstructor
 public class UserClient {
-    private final static String GET_USER_DETAILS = "/api/users/details/{username}";
+    private final static String POST_USER_DETAILS = "/api/users/details";
     private final static String REG_NEW_USER = "/api/users/reg";
     private final static String CHECK_EXIST_USERNAME = "/api/users/check-exist/{username}";
 
@@ -21,9 +21,8 @@ public class UserClient {
     private final RestTemplate restTemplate;
 
     public UserDetailsDto getByUsername(String username) {
-        String url = userManagerAddress.concat(GET_USER_DETAILS);
-
-        return restTemplate.getForObject(url, UserDetailsDto.class, username);
+        String url = userManagerAddress.concat(POST_USER_DETAILS);
+        return restTemplate.postForObject(url, username, UserDetailsDto.class);
     }
 
     public UserRegisterResponse createNewUser(UserRegisterRequest request) {

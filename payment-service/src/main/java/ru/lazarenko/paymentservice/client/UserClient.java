@@ -4,19 +4,19 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
-import ru.lazarenko.model.dto.security.UserDetailsDto;
+import ru.lazarenko.securitymanager.dto.UserDetailsDto;
 
 @Component
 @RequiredArgsConstructor
 public class UserClient {
-    private final static String GET_USER_DETAILS = "/api/users/details/{username}";
+    private final static String POST_USER_DETAILS = "/api/users/details";
     private final RestTemplate restTemplate;
 
     @Value("${address.user-manager}")
     private String userManagerAddress;
 
     public UserDetailsDto getByUsername(String username) {
-        String url = userManagerAddress.concat(GET_USER_DETAILS);
-        return restTemplate.getForObject(url, UserDetailsDto.class, username);
+        String url = userManagerAddress.concat(POST_USER_DETAILS);
+        return restTemplate.postForObject(url, username, UserDetailsDto.class);
     }
 }
