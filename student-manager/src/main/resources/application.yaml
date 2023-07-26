@@ -1,11 +1,11 @@
 server:
-  port: 8090
+  port: 8060
 
 spring:
   datasource:
-    url: jdbc:mysql://localhost:3306/students
-    username: root
-    password: root
+    url: ${DATASOURCE_URL:jdbc:mysql://localhost:3306/students}
+    username: ${DB_USER:root}
+    password: ${DB_PASSWORD:rootroot}
     driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
     database-platform: org.hibernate.dialect.MySQL8Dialect
@@ -15,3 +15,6 @@ spring:
       hibernate:
         show_sql: true
         format_sql: true
+
+address:
+  student-manager: ${ADDRESS_STUDENT_MANAGER:http://localhost:8090}

@@ -1,0 +1,111 @@
+version: '3.9'
+
+services:
+  courses-server:
+    build: ./course-manager
+    image: course_manager_image
+    container_name: course-manager
+    depends_on:
+      - courses-database
+    ports:
+      - "8070:8070"
+    environment:
+      - DATASOURCE_URL=jdbc:mysql://courses_db:3306/courses
+      - DB_NAME=courses
+      - DB_USER=root
+      - DB_PASSWORD=rootroot
+      - ADDRESS_USER_MANAGER=http://security-server:8090
+      - ADDRESS_STUDENT_MANAGER=http://students-server:8060
+
+  courses-database:
+    image: mysql
+    container_name: courses_db
+    volumes:
+      - courses-data:/var/lib/mysql
+    ports:
+      - "3310:3309"
+    environment:
+      MYSQL_DATABASE: courses
+      MYSQL_ROOT_PASSWORD: rootroot
+
+  payments-server:
+    build: ./payment-service
+    image: payment_service_image
+    container_name: payment-service
+    depends_on:
+      - payments-database
+    ports:
+      - "8080:8080"
+    environment:
+      - DATASOURCE_URL=jdbc:mysql://payment_db:3306/payments
+      - DB_USER=root
+      - DB_PASSWORD=rootroot
+      - ADDRESS_USER_MANAGER=http://security-server:8090
+      - ADDRESS_COURSE_MANAGER=http://courses-server:8070
+      - ADDRESS_STUDENT_MANAGER=http://students-server:8060
+
+  payments-database:
+    image: mysql
+    container_name: payment_db
+    volumes:
+      - payments-data:/var/lib/mysql
+    ports:
+      - "3309:3308"
+    environment:
+      MYSQL_DATABASE: payments
+      MYSQL_ROOT_PASSWORD: rootroot
+
+  students-server:
+    build: ./student-manager
+    image: student_manager_image
+    container_name: students-manager
+    depends_on:
+      - student-database
+    ports:
+      - "8060:8060"
+    environment:
+      - DATASOURCE_URL=jdbc:mysql://students_db:3306/students
+      - DB_USER=root
+      - DB_PASSWORD=rootroot
+      - ADDRESS_USER_MANAGER=http://security-server:8090
+
+  student-database:
+    image: mysql
+    container_name: students_db
+    volumes:
+      - students-data:/var/lib/mysql
+    ports:
+      - "3308:3307"
+    environment:
+      MYSQL_DATABASE: students
+      MYSQL_ROOT_PASSWORD: rootroot
+
+  security-server:
+    build: ./security-manager
+    image: security_manager_image
+    container_name: security-manager
+    depends_on:
+      - security-database
+    ports:
+      - "8090:8090"
+    environment:
+      - DATASOURCE_URL=jdbc:mysql://users_db:3306/users
+      - DB_USER=root
+      - DB_PASSWORD=rootroot
+
+  security-database:
+    image: mysql
+    container_name: users_db
+    volumes:
+      - security-data:/var/lib/mysql
+    ports:
+      - "3307:3306"
+    environment:
+      MYSQL_DATABASE: users
+      MYSQL_ROOT_PASSWORD: rootroot
+
+volumes:
+  courses-data:
+  payments-data:
+  students-data:
+  security-data:
